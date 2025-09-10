@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping
-public class Controller {
+public class EmployeeController {
 
-    @GetMapping("/boasvindas")
-    public String boasVindas() {
+    @GetMapping("/welcome")
+    public String welcome() {
         return "Essa é minha primeira mensagem nessa rota";
     }
 }
