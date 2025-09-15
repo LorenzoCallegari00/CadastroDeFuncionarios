@@ -16,7 +16,10 @@ public class EmployeeModel {
     private Long id;
 
     private String name;
+
+    @Column(unique = true)
     private String email;
+
     private Department department;
     private int age;
 
