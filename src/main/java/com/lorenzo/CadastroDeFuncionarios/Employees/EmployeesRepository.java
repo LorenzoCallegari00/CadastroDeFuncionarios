@@ -1,4 +1,6 @@
 package com.lorenzo.CadastroDeFuncionarios.Employees;
 
-public class EmployeesRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EmployeesRepository extends JpaRepository<EmployeeModel, Long> {
 }
