@@ -18,6 +18,7 @@ public class EmployeeModel {
     private String name;
     private Department department;
     private int age;
+    private String imgUrl;
 
     @Column(unique = true)
     private String email;
