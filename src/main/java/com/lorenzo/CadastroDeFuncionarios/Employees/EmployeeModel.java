@@ -16,12 +16,11 @@ public class EmployeeModel {
     private Long id;
 
     private String name;
+    private Department department;
+    private int age;
 
     @Column(unique = true)
     private String email;
-
-    private Department department;
-    private int age;
 
     // Many employees have only one task.
     @ManyToOne
