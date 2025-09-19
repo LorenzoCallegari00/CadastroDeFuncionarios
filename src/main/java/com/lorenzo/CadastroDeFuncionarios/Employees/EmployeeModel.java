@@ -16,6 +16,7 @@ public class EmployeeModel {
     private Long id;
 
     private String name;
+    @Enumerated(EnumType.STRING)
     private Department department;
     private int age;
     private String imgUrl;
