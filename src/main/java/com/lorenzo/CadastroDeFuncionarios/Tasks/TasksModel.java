@@ -20,7 +20,10 @@ public class TasksModel {
     private Long id;
 
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private TaskStatus status;
+
     private String description;
 
     // A task can have many employees
