@@ -1,4 +1,4 @@
-package com.lorenzo.CadastroDeFuncionarios.Tasks;
+package com.lorenzo.CadastroDeFuncionarios.Tasks.Model;
 
 public enum TaskStatus {
     PENDENTE,

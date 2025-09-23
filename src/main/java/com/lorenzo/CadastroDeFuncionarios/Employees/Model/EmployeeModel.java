@@ -1,6 +1,6 @@
-package com.lorenzo.CadastroDeFuncionarios.Employees;
+package com.lorenzo.CadastroDeFuncionarios.Employees.Model;
 
-import com.lorenzo.CadastroDeFuncionarios.Tasks.TasksModel;
+import com.lorenzo.CadastroDeFuncionarios.Tasks.Model.TasksModel;
 import jakarta.persistence.*;
 import lombok.*;
 
