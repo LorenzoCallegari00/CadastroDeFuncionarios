@@ -3,7 +3,7 @@ package com.lorenzo.CadastroDeFuncionarios.Tasks.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("tasks")
+@RequestMapping("/tasks")
 public class TasksController {
 
     @PostMapping("/add")

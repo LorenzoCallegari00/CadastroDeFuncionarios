@@ -3,7 +3,7 @@ package com.lorenzo.CadastroDeFuncionarios.Employees.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/employees")
 public class EmployeeController {
 
     @GetMapping("/welcome")
