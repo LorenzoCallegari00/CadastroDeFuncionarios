@@ -1,10 +1,20 @@
 package com.lorenzo.CadastroDeFuncionarios.Tasks.Controller;
 
+import com.lorenzo.CadastroDeFuncionarios.Tasks.Model.TasksModel;
+import com.lorenzo.CadastroDeFuncionarios.Tasks.Service.TasksService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/tasks")
 public class TasksController {
+
+    private TasksService tasksService;
+
+    public TasksController(TasksService tasksService) {
+        this.tasksService = tasksService;
+    }
 
     @PostMapping("/add")
     public String addTask() {
@@ -12,8 +22,8 @@ public class TasksController {
     }
 
     @GetMapping("/showAll")
-    public String showAllTasks() {
-        return "Mostrando todas as tarefas";
+    public List<TasksModel> showAllTasks() {
+        return tasksService.showAllTasks();
     }
 
     @GetMapping("/showById")
