@@ -1,5 +1,6 @@
 package com.lorenzo.CadastroDeFuncionarios.Tasks.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lorenzo.CadastroDeFuncionarios.Employees.Model.EmployeeModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,5 +29,6 @@ public class TasksModel {
 
     // A task can have many employees
     @OneToMany(mappedBy = "tasks")
+    @JsonIgnore
     private List<EmployeeModel> employees;
 }
