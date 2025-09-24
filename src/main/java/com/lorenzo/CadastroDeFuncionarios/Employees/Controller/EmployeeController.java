@@ -1,10 +1,20 @@
 package com.lorenzo.CadastroDeFuncionarios.Employees.Controller;
 
+import com.lorenzo.CadastroDeFuncionarios.Employees.Model.EmployeeModel;
+import com.lorenzo.CadastroDeFuncionarios.Employees.Service.EmployeesService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
+
+    private EmployeesService employeesService;
+
+    public EmployeeController(EmployeesService employeesService) {
+        this.employeesService = employeesService;
+    }
 
     @GetMapping("/welcome")
     public String welcome() {
@@ -19,8 +29,8 @@ public class EmployeeController {
 
     // Show all Employees (READ)
     @GetMapping("/showAll")
-    public String showAllEmployees() {
-        return "Listando todos os funcionarios";
+    public List<EmployeeModel> showAllEmployees() {
+        return employeesService.showAllEmployees();
     }
 
     // Search Employee by ID (READ)
