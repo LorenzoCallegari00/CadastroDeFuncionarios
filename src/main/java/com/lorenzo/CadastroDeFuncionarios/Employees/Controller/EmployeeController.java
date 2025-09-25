@@ -22,30 +22,30 @@ public class EmployeeController {
     }
 
     // Add Employee (CREATE)
-    @PostMapping("/add")
+    @PostMapping
     public String addEmployee() {
         return "Funcionario adicionado";
     }
 
     // Show all Employees (READ)
-    @GetMapping("/showAll")
+    @GetMapping
     public List<EmployeeModel> showAllEmployees() {
         return employeesService.showAllEmployees();
     }
 
     // Search Employee by ID (READ)
-    @GetMapping("/showById")
+    @GetMapping("/{id}")
     public String showEmployeeById() {
         return "Mostrando funcionario de Id: ";
     }
     // Update Employee data (UPDATE)
-    @PutMapping("/update")
+    @PutMapping("/{id}")
     public String updateEmployeeById() {
         return "Funcionario de Id: atualizado";
     }
 
     // Delete Employee (DELETE)
-    @DeleteMapping("/delete")
+    @DeleteMapping("/{id}")
     public String deleteEmployee() {
         return "Funcionario deletado";
     }

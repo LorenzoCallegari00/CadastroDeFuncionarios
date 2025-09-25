@@ -16,27 +16,27 @@ public class TasksController {
         this.tasksService = tasksService;
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public String addTask() {
         return "Tarefa criada com sucesso";
     }
 
-    @GetMapping("/showAll")
+    @GetMapping
     public List<TasksModel> showAllTasks() {
         return tasksService.showAllTasks();
     }
 
-    @GetMapping("/showById")
+    @GetMapping("/{id}")
     public String showTaskById() {
         return "Mostrando tarefa de Id: ";
     }
 
-    @PutMapping("/update")
+    @PutMapping("/{id}")
     public String updateTasks() {
         return "Tarefa atualizada com sucesso";
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/{id}")
     public String deleteTaskById() {
         return "Tarefa deletada";
     }
