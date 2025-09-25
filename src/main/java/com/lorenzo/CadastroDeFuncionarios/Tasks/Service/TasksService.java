@@ -16,12 +16,19 @@ public class TasksService {
         this.tasksRepository = tasksRepository;
     }
 
+    // Show All Tasks
     public List<TasksModel> showAllTasks() {
         return tasksRepository.findAll();
     }
 
+    // Show Tasks By their ID
     public TasksModel showTaskById(Long id) {
         Optional<TasksModel> optionalTasksModelShowById = tasksRepository.findById(id);
         return optionalTasksModelShowById.orElse(null);
+    }
+
+    // Add new task
+    public TasksModel addTasks(TasksModel tasksModel) {
+        return tasksRepository.save(tasksModel);
     }
 }

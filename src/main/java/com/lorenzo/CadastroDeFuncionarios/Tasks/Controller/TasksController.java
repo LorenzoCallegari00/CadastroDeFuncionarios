@@ -17,8 +17,8 @@ public class TasksController {
     }
 
     @PostMapping
-    public String addTask() {
-        return "Tarefa criada com sucesso";
+    public TasksModel addTasks(@RequestBody TasksModel tasksModel) {
+        return tasksService.addTasks(tasksModel);
     }
 
     @GetMapping
