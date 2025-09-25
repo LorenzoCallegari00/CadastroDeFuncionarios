@@ -23,8 +23,8 @@ public class EmployeeController {
 
     // Add Employee (CREATE)
     @PostMapping
-    public String addEmployee() {
-        return "Funcionario adicionado";
+    public EmployeeModel addEmployee(@RequestBody EmployeeModel employeeModel) {
+        return employeesService.addEmployee(employeeModel);
     }
 
     // Show all Employees (READ)

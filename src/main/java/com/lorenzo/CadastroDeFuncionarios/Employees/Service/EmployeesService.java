@@ -3,6 +3,7 @@ package com.lorenzo.CadastroDeFuncionarios.Employees.Service;
 import com.lorenzo.CadastroDeFuncionarios.Employees.Model.EmployeeModel;
 import com.lorenzo.CadastroDeFuncionarios.Employees.Repository.EmployeesRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,11 @@ public class EmployeesService {
     public EmployeeModel showEmployeeById(Long id) {
         Optional<EmployeeModel> optionalEmployeeModelShowById = employeesRepository.findById(id);
         return optionalEmployeeModelShowById.orElse(null);
+    }
+
+    // Add new Employee
+    public EmployeeModel addEmployee (EmployeeModel employeeModel) {
+        return employeesRepository.save(employeeModel);
     }
 
 }
