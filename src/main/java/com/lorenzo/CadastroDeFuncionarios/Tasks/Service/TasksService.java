@@ -5,6 +5,7 @@ import com.lorenzo.CadastroDeFuncionarios.Tasks.Repository.TasksRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TasksService {
@@ -17,5 +18,10 @@ public class TasksService {
 
     public List<TasksModel> showAllTasks() {
         return tasksRepository.findAll();
+    }
+
+    public TasksModel showTaskById(Long id) {
+        Optional<TasksModel> optionalTasksModelShowById = tasksRepository.findById(id);
+        return optionalTasksModelShowById.orElse(null);
     }
 }

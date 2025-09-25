@@ -27,8 +27,8 @@ public class TasksController {
     }
 
     @GetMapping("/{id}")
-    public String showTaskById() {
-        return "Mostrando tarefa de Id: ";
+    public TasksModel showTasksById(@PathVariable Long id) {
+        return tasksService.showTaskById(id);
     }
 
     @PutMapping("/{id}")
