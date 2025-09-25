@@ -5,6 +5,7 @@ import com.lorenzo.CadastroDeFuncionarios.Employees.Repository.EmployeesReposito
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeesService {
@@ -18,6 +19,12 @@ public class EmployeesService {
     // Show All Employees
     public List<EmployeeModel> showAllEmployees() {
         return employeesRepository.findAll();
+    }
+
+    // Show Employees By their ID
+    public EmployeeModel showEmployeeById(Long id) {
+        Optional<EmployeeModel> optionalEmployeeModelShowById = employeesRepository.findById(id);
+        return optionalEmployeeModelShowById.orElse(null);
     }
 
 }

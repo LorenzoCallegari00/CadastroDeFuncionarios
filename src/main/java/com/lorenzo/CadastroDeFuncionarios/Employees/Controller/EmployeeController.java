@@ -35,8 +35,8 @@ public class EmployeeController {
 
     // Search Employee by ID (READ)
     @GetMapping("/{id}")
-    public String showEmployeeById() {
-        return "Mostrando funcionario de Id: ";
+    public EmployeeModel showEmployeeById(@PathVariable Long id) {
+        return employeesService.showEmployeeById(id);
     }
     // Update Employee data (UPDATE)
     @PutMapping("/{id}")
