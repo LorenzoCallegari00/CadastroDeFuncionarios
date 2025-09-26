@@ -46,8 +46,8 @@ public class EmployeeController {
 
     // Delete Employee (DELETE)
     @DeleteMapping("/{id}")
-    public String deleteEmployee() {
-        return "Funcionario deletado";
+    public void removeEmployee(@PathVariable Long id) {
+        employeesService.removeEmployee(id);
     }
 
 }

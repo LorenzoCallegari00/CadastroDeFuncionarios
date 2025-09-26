@@ -36,8 +36,9 @@ public class TasksController {
         return "Tarefa atualizada com sucesso";
     }
 
+
     @DeleteMapping("/{id}")
-    public String deleteTaskById() {
-        return "Tarefa deletada";
+    public void removeTask(@PathVariable Long id) {
+        tasksService.removeTask(id);
     }
 }

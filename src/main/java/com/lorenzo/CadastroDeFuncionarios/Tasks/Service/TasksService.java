@@ -31,4 +31,11 @@ public class TasksService {
     public TasksModel addTasks(TasksModel tasksModel) {
         return tasksRepository.save(tasksModel);
     }
+
+
+    // Delete Task
+    public void removeTask(Long id) {
+        tasksRepository.deleteById(id);
+    }
+
 }

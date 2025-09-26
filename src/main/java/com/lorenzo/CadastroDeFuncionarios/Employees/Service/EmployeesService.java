@@ -33,4 +33,9 @@ public class EmployeesService {
         return employeesRepository.save(employeeModel);
     }
 
+    // Delete Employee
+    public void removeEmployee(Long id) {
+        employeesRepository.deleteById(id);
+    }
+
 }
