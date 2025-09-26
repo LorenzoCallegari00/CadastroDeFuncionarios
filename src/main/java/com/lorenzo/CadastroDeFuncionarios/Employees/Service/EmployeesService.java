@@ -38,4 +38,13 @@ public class EmployeesService {
         employeesRepository.deleteById(id);
     }
 
+    // Update Employee
+    public EmployeeModel updateEmployee(EmployeeModel employeeModel, Long id) {
+        if (employeesRepository.existsById(id)) {
+            employeeModel.setId(id);
+            return employeesRepository.save(employeeModel);
+        }
+        return null;
+    }
+
 }

@@ -40,8 +40,8 @@ public class EmployeeController {
     }
     // Update Employee data (UPDATE)
     @PutMapping("/{id}")
-    public String updateEmployeeById() {
-        return "Funcionario de Id: atualizado";
+    public EmployeeModel updateEmployee(@RequestBody EmployeeModel employeeModel, @PathVariable Long id) {
+        return employeesService.updateEmployee(employeeModel, id);
     }
 
     // Delete Employee (DELETE)
