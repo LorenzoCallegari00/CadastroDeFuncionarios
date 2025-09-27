@@ -32,8 +32,8 @@ public class TasksController {
     }
 
     @PutMapping("/{id}")
-    public String updateTasks() {
-        return "Tarefa atualizada com sucesso";
+    public TasksModel updateTask(@RequestBody TasksModel tasksModel, @PathVariable Long id) {
+        return tasksService.updateTask(tasksModel, id);
     }
 
 

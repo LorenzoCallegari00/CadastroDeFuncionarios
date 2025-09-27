@@ -2,6 +2,7 @@ package com.lorenzo.CadastroDeFuncionarios.Tasks.Service;
 
 import com.lorenzo.CadastroDeFuncionarios.Tasks.Model.TasksModel;
 import com.lorenzo.CadastroDeFuncionarios.Tasks.Repository.TasksRepository;
+import org.hibernate.query.sqm.mutation.internal.TableKeyExpressionCollector;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,6 +37,16 @@ public class TasksService {
     // Delete Task
     public void removeTask(Long id) {
         tasksRepository.deleteById(id);
+    }
+
+     // Update Task
+    public TasksModel updateTask(TasksModel tasksModel, Long id) {
+         if (tasksRepository.existsById(id)) {
+             tasksModel.setId(id);
+             return tasksRepository.save(tasksModel);
+         }
+
+         return null;
     }
 
 }
