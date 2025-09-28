@@ -2,6 +2,7 @@ package com.lorenzo.CadastroDeFuncionarios.Tasks.Controller;
 
 import com.lorenzo.CadastroDeFuncionarios.Tasks.Model.TasksModel;
 import com.lorenzo.CadastroDeFuncionarios.Tasks.Service.TasksService;
+import com.lorenzo.CadastroDeFuncionarios.Tasks.dto.TasksDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +18,8 @@ public class TasksController {
     }
 
     @PostMapping
-    public TasksModel addTasks(@RequestBody TasksModel tasksModel) {
-        return tasksService.addTasks(tasksModel);
+    public TasksDTO addTasks(@RequestBody TasksDTO dto) {
+        return tasksService.addTasks(dto);
     }
 
     @GetMapping
@@ -35,7 +36,6 @@ public class TasksController {
     public TasksModel updateTask(@RequestBody TasksModel tasksModel, @PathVariable Long id) {
         return tasksService.updateTask(tasksModel, id);
     }
-
 
     @DeleteMapping("/{id}")
     public void removeTask(@PathVariable Long id) {

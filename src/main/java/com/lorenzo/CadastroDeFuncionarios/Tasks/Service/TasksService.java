@@ -2,6 +2,8 @@ package com.lorenzo.CadastroDeFuncionarios.Tasks.Service;
 
 import com.lorenzo.CadastroDeFuncionarios.Tasks.Model.TasksModel;
 import com.lorenzo.CadastroDeFuncionarios.Tasks.Repository.TasksRepository;
+import com.lorenzo.CadastroDeFuncionarios.Tasks.dto.TasksDTO;
+import com.lorenzo.CadastroDeFuncionarios.Tasks.mapper.TasksMapper;
 import org.hibernate.query.sqm.mutation.internal.TableKeyExpressionCollector;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,11 @@ import java.util.Optional;
 public class TasksService {
 
     private TasksRepository tasksRepository;
+    private TasksMapper tasksMapper;
 
-    public TasksService(TasksRepository tasksRepository) {
+    public TasksService(TasksRepository tasksRepository, TasksMapper tasksMapper) {
         this.tasksRepository = tasksRepository;
+        this.tasksMapper = tasksMapper;
     }
 
     // Show All Tasks
@@ -29,8 +33,10 @@ public class TasksService {
     }
 
     // Add new task
-    public TasksModel addTasks(TasksModel tasksModel) {
-        return tasksRepository.save(tasksModel);
+    public TasksDTO addTasks(TasksDTO dto) {
+        TasksModel entity = tasksMapper.toEntity(dto);
+        entity = tasksRepository.save(entity);
+        return tasksMapper.toDTO(entity);
     }
 
 
