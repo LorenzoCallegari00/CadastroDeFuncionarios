@@ -2,6 +2,8 @@ package com.lorenzo.CadastroDeFuncionarios.Employees.Service;
 
 import com.lorenzo.CadastroDeFuncionarios.Employees.Model.EmployeeModel;
 import com.lorenzo.CadastroDeFuncionarios.Employees.Repository.EmployeesRepository;
+import com.lorenzo.CadastroDeFuncionarios.Employees.dto.EmployeeDTO;
+import com.lorenzo.CadastroDeFuncionarios.Employees.mapper.EmployeeMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -12,9 +14,11 @@ import java.util.Optional;
 public class EmployeesService {
 
     private EmployeesRepository employeesRepository;
+    private EmployeeMapper employeeMapper;
 
-    public EmployeesService(EmployeesRepository employeesRepository) {
+    public EmployeesService(EmployeesRepository employeesRepository, EmployeeMapper employeeMapper) {
         this.employeesRepository = employeesRepository;
+        this.employeeMapper = employeeMapper;
     }
 
     // Show All Employees
@@ -29,8 +33,11 @@ public class EmployeesService {
     }
 
     // Add new Employee
-    public EmployeeModel addEmployee (EmployeeModel employeeModel) {
-        return employeesRepository.save(employeeModel);
+    public EmployeeDTO addEmployee (EmployeeDTO dto) {
+        EmployeeModel entity = employeeMapper.toEntity(dto);
+        entity = employeesRepository.save(entity);
+        return employeeMapper.toDTO(entity);
+
     }
 
     // Delete Employee
