@@ -23,18 +23,18 @@ public class TasksController {
     }
 
     @GetMapping
-    public List<TasksModel> showAllTasks() {
+    public List<TasksDTO> showAllTasks() {
         return tasksService.showAllTasks();
     }
 
     @GetMapping("/{id}")
-    public TasksModel showTasksById(@PathVariable Long id) {
+    public TasksDTO showTasksById(@PathVariable Long id) {
         return tasksService.showTaskById(id);
     }
 
     @PutMapping("/{id}")
-    public TasksModel updateTask(@RequestBody TasksModel tasksModel, @PathVariable Long id) {
-        return tasksService.updateTask(tasksModel, id);
+    public TasksDTO updateTask(@RequestBody TasksDTO dto, @PathVariable Long id) {
+        return tasksService.updateTask(dto, id);
     }
 
     @DeleteMapping("/{id}")
