@@ -24,8 +24,12 @@ public class EmployeeModel {
     @Column(unique = true)
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    private Nivel nivel;
+
     // Many employees have only one task.
     @ManyToOne
     @JoinColumn(name = "tasks_id") // Foreign Key
     private TasksModel tasks;
 }
+

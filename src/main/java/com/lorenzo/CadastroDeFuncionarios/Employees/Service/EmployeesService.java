@@ -2,35 +2,46 @@ package com.lorenzo.CadastroDeFuncionarios.Employees.Service;
 
 import com.lorenzo.CadastroDeFuncionarios.Employees.Model.EmployeeModel;
 import com.lorenzo.CadastroDeFuncionarios.Employees.Repository.EmployeesRepository;
+import com.lorenzo.CadastroDeFuncionarios.Employees.dto.EmployeeDTO;
+import com.lorenzo.CadastroDeFuncionarios.Employees.mapper.EmployeeMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeesService {
 
     private EmployeesRepository employeesRepository;
+    private EmployeeMapper employeeMapper;
 
-    public EmployeesService(EmployeesRepository employeesRepository) {
+    public EmployeesService(EmployeesRepository employeesRepository, EmployeeMapper employeeMapper) {
         this.employeesRepository = employeesRepository;
+        this.employeeMapper = employeeMapper;
     }
 
     // Show All Employees
-    public List<EmployeeModel> showAllEmployees() {
-        return employeesRepository.findAll();
+    public List<EmployeeDTO> showAllEmployees() {
+        List<EmployeeModel> employeeModelList = employeesRepository.findAll();
+        return employeeModelList.stream()
+                .map(employeeMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     // Show Employees By their ID
-    public EmployeeModel showEmployeeById(Long id) {
-        Optional<EmployeeModel> optionalEmployeeModelShowById = employeesRepository.findById(id);
-        return optionalEmployeeModelShowById.orElse(null);
+    public EmployeeDTO showEmployeeById(Long id) {
+        Optional<EmployeeModel> employeeById = employeesRepository.findById(id);
+        return employeeById.map(employeeMapper::toDTO).orElse(null);
     }
 
     // Add new Employee
-    public EmployeeModel addEmployee (EmployeeModel employeeModel) {
-        return employeesRepository.save(employeeModel);
+    public EmployeeDTO addEmployee (EmployeeDTO dto) {
+        EmployeeModel entity = employeeMapper.toEntity(dto);
+        entity = employeesRepository.save(entity);
+        return employeeMapper.toDTO(entity);
+
     }
 
     // Delete Employee
@@ -39,10 +50,13 @@ public class EmployeesService {
     }
 
     // Update Employee
-    public EmployeeModel updateEmployee(EmployeeModel employeeModel, Long id) {
-        if (employeesRepository.existsById(id)) {
-            employeeModel.setId(id);
-            return employeesRepository.save(employeeModel);
+    public EmployeeDTO updateEmployee(EmployeeDTO dto, Long id) {
+        Optional<EmployeeModel> existentEmployee = employeesRepository.findById(id);
+        if (existentEmployee.isPresent()) {
+            EmployeeModel entity = employeeMapper.toEntity(dto);
+            entity.setId(id);
+            EmployeeModel saved = employeesRepository.save(entity);
+            return employeeMapper.toDTO(saved);
         }
         return null;
     }
