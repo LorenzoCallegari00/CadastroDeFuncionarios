@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeesService {
@@ -22,14 +23,17 @@ public class EmployeesService {
     }
 
     // Show All Employees
-    public List<EmployeeModel> showAllEmployees() {
-        return employeesRepository.findAll();
+    public List<EmployeeDTO> showAllEmployees() {
+        List<EmployeeModel> employeeModelList = employeesRepository.findAll();
+        return employeeModelList.stream()
+                .map(employeeMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     // Show Employees By their ID
-    public EmployeeModel showEmployeeById(Long id) {
-        Optional<EmployeeModel> optionalEmployeeModelShowById = employeesRepository.findById(id);
-        return optionalEmployeeModelShowById.orElse(null);
+    public EmployeeDTO showEmployeeById(Long id) {
+        Optional<EmployeeModel> employeeById = employeesRepository.findById(id);
+        return employeeById.map(employeeMapper::toDTO).orElse(null);
     }
 
     // Add new Employee
@@ -46,10 +50,13 @@ public class EmployeesService {
     }
 
     // Update Employee
-    public EmployeeModel updateEmployee(EmployeeModel employeeModel, Long id) {
-        if (employeesRepository.existsById(id)) {
-            employeeModel.setId(id);
-            return employeesRepository.save(employeeModel);
+    public EmployeeDTO updateEmployee(EmployeeDTO dto, Long id) {
+        Optional<EmployeeModel> existentEmployee = employeesRepository.findById(id);
+        if (existentEmployee.isPresent()) {
+            EmployeeModel entity = employeeMapper.toEntity(dto);
+            entity.setId(id);
+            EmployeeModel saved = employeesRepository.save(entity);
+            return employeeMapper.toDTO(saved);
         }
         return null;
     }

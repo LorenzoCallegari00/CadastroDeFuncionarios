@@ -30,20 +30,20 @@ public class EmployeeController {
 
     // Show all Employees (READ)
     @GetMapping
-    public List<EmployeeModel> showAllEmployees() {
+    public List<EmployeeDTO> showAllEmployees() {
         return employeesService.showAllEmployees();
     }
 
     // Search Employee by ID (READ)
     @GetMapping("/{id}")
-    public EmployeeModel showEmployeeById(@PathVariable Long id) {
+    public EmployeeDTO showEmployeeById(@PathVariable Long id) {
         return employeesService.showEmployeeById(id);
     }
 
     // Update Employee data (UPDATE)
     @PutMapping("/{id}")
-    public EmployeeModel updateEmployee(@RequestBody EmployeeModel employeeModel, @PathVariable Long id) {
-        return employeesService.updateEmployee(employeeModel, id);
+    public EmployeeDTO updateEmployee(@RequestBody EmployeeDTO dto, @PathVariable Long id) {
+        return employeesService.updateEmployee(dto, id);
     }
 
     // Delete Employee (DELETE)
