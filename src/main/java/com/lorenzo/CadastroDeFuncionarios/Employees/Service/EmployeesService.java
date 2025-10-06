@@ -5,7 +5,6 @@ import com.lorenzo.CadastroDeFuncionarios.Employees.Repository.EmployeesReposito
 import com.lorenzo.CadastroDeFuncionarios.Employees.dto.EmployeeDTO;
 import com.lorenzo.CadastroDeFuncionarios.Employees.mapper.EmployeeMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,8 +13,8 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeesService {
 
-    private EmployeesRepository employeesRepository;
-    private EmployeeMapper employeeMapper;
+    private final EmployeesRepository employeesRepository;
+    private final EmployeeMapper employeeMapper;
 
     public EmployeesService(EmployeesRepository employeesRepository, EmployeeMapper employeeMapper) {
         this.employeesRepository = employeesRepository;

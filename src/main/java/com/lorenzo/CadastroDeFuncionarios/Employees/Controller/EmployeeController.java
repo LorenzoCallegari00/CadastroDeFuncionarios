@@ -7,13 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    private EmployeesService employeesService;
+    private final EmployeesService employeesService;
 
     public EmployeeController(EmployeesService employeesService) {
         this.employeesService = employeesService;

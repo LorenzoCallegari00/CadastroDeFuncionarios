@@ -1,6 +1,5 @@
 package com.lorenzo.CadastroDeFuncionarios.Tasks.Controller;
 
-import com.lorenzo.CadastroDeFuncionarios.Tasks.Model.TasksModel;
 import com.lorenzo.CadastroDeFuncionarios.Tasks.Service.TasksService;
 import com.lorenzo.CadastroDeFuncionarios.Tasks.dto.TasksDTO;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import java.util.List;
 @RequestMapping("/tasks")
 public class TasksController {
 
-    private TasksService tasksService;
+    private final TasksService tasksService;
 
     public TasksController(TasksService tasksService) {
         this.tasksService = tasksService;

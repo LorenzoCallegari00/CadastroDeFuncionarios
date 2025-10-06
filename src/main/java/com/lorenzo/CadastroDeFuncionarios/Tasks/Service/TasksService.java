@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 @Service
 public class TasksService {
 
-    private TasksRepository tasksRepository;
-    private TasksMapper tasksMapper;
+    private final TasksRepository tasksRepository;
+    private final TasksMapper tasksMapper;
 
     public TasksService(TasksRepository tasksRepository, TasksMapper tasksMapper) {
         this.tasksRepository = tasksRepository;
