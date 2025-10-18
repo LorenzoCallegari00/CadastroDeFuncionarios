@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes da Tarefa</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        padding: 40px;
+    }
+    h1 {
+        color: #333;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 2.2em;
+    }
+    .detail-row {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #f093fb;
+    }
+    .detail-label {
+        font-weight: 600;
+        color: #555;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    .detail-value {
+        font-size: 18px;
+        color: #333;
+    }
+    .badge {
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .badge-pendente { background: #ffc107; color: #000; }
+    .badge-em_andamento { background: #17a2b8; color: white; }
+    .badge-concluida { background: #28a745; color: white; }
+    .employees-list {
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+    }
+    .employee-item {
+        padding: 10px;
+        background: #f8f9fa;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border-left: 3px solid #f093fb;
+    }
+    .actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .btn {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+    }
+    .btn-secondary {
+        background: #6c757d;
+        color: white;
+    }
+    .btn-success {
+        background: #28a745;
+        color: white;
+    }
+    .btn-danger {
+        background: #dc3545;
+        color: white;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>📋 Detalhes da Tarefa</h1>
+
+  <div class="detail-row">
+    <div class="detail-label">ID</div>
+    <div class="detail-value" th:text="${task.id}">1</div>
+  </div>
+
+  <div class="detail-row">
+    <div class="detail-label">Nome da Tarefa</div>
+    <div class="detail-value" th:text="${task.name}">Tarefa</div>
+  </div>
+
+  <div class="detail-row">
+    <div class="detail-label">Status</div>
+    <div class="detail-value">
+                <span th:class="'badge badge-' + ${task.status.toString().toLowerCase()}"
+                      th:text="${task.status}">PENDENTE</span>
+    </div>
+  </div>
+
+  <div class="detail-row">
+    <div class="detail-label">Descrição</div>
+    <div class="detail-value" th:text="${task.description}">Descrição da tarefa</div>
+  </div>
+
+  <div class="detail-row">
+    <div class="detail-label">Funcionários Atribuídos</div>
+    <div class="detail-value">
+      <div th:if="${task.employees != null and !task.employees.isEmpty()}" class="employees-list">
+        <div th:each="employee : ${task.employees}" class="employee-item">
+          <strong th:text="${employee.name}">Nome</strong> -
+          <span th:text="${employee.department}">Departamento</span>
+        </div>
+      </div>
+      <div th:if="${task.employees == null or task.employees.isEmpty()}">
+        Nenhum funcionário atribuído
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a th:href="@{/ui/tasks}" class="btn btn-secondary">⬅️ Voltar</a>
+    <a th:href="@{/ui/tasks/edit/{id}(id=${task.id})}" class="btn btn-success">✏️ Editar</a>
+    <a th:href="@{/ui/tasks/delete/{id}(id=${task.id})}"
+       class="btn btn-danger"
+       onclick="return confirm('Tem certeza que deseja deletar esta tarefa?')">🗑️ Deletar</a>
+  </div>
+</div>
+</body>
+</html>

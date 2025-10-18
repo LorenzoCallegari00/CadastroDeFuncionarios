@@ -29,7 +29,8 @@ public class EmployeeController {
     // Show all Employees (READ)
     @GetMapping
     public ResponseEntity<List<EmployeeDTO>> showAllEmployees() {
-        return ResponseEntity.ok(employeesService.showAllEmployees());
+        List<EmployeeDTO> employeeDTOList = employeesService.showAllEmployees();
+        return ResponseEntity.ok(employeeDTOList);
     }
 
     // Search Employee by ID (READ)
