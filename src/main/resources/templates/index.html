@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Cadastro</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        width: 100%;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        padding: 60px 40px;
+        text-align: center;
+    }
+    h1 {
+        color: #333;
+        font-size: 3em;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .subtitle {
+        color: #666;
+        font-size: 1.2em;
+        margin-bottom: 50px;
+    }
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+    .card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 40px 30px;
+        border-radius: 15px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    }
+    .card.tasks {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    .card.tasks:hover {
+        box-shadow: 0 15px 30px rgba(240, 147, 251, 0.4);
+    }
+    .card-icon {
+        font-size: 4em;
+        margin-bottom: 20px;
+    }
+    .card-title {
+        font-size: 1.8em;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    .card-description {
+        font-size: 1em;
+        opacity: 0.9;
+    }
+    @media (max-width: 768px) {
+        .container {
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .cards {
+            grid-template-columns: 1fr;
+        }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🏢 Sistema de Cadastro</h1>
+  <p class="subtitle">Gerencie funcionários e tarefas da sua empresa</p>
+
+  <div class="cards">
+    <a href="/ui/employees" class="card">
+      <div class="card-icon">👥</div>
+      <div class="card-title">Funcionários</div>
+      <div class="card-description">
+        Cadastre, visualize e gerencie todos os funcionários da empresa
+      </div>
+    </a>
+
+    <a href="/ui/tasks" class="card tasks">
+      <div class="card-icon">📝</div>
+      <div class="card-title">Tarefas</div>
+      <div class="card-description">
+        Crie e acompanhe tarefas atribuídas aos funcionários
+      </div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
