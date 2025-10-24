@@ -148,11 +148,11 @@
 </head>
 <body>
 <div class="container">
-  <h1>📝 Gerenciamento de Tarefas</h1>
+  <h1> Gerenciamento de Tarefas</h1>
 
   <!-- Mensagem de erro -->
   <div th:if="${param.error != null}" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #dc3545;">
-    <strong>⚠️ Erro:</strong>
+    <strong> Erro:</strong>
     <span th:if="${param.error[0] == 'hasemployees'}">
                 Não é possível deletar esta tarefa pois existem funcionários associados a ela. Remova os funcionários primeiro.
             </span>
@@ -165,8 +165,8 @@
   </div>
 
   <div class="header-actions">">
-    <a th:href="@{/ui/tasks/new}" class="btn btn-primary">➕ Nova Tarefa</a>
-    <a th:href="@{/ui/employees}" class="btn btn-secondary">👥 Ver Funcionários</a>
+    <a th:href="@{/ui/tasks/new}" class="btn btn-primary"> Nova Tarefa</a>
+    <a th:href="@{/ui/employees}" class="btn btn-secondary"> Ver Funcionários</a>
   </div>
 
   <div th:if="${tasks != null and !tasks.isEmpty()}">
@@ -193,11 +193,11 @@
         <td th:text="${task.employees != null ? task.employees.size() : 0}">0</td>
         <td>
           <div class="actions">
-            <a th:href="@{/ui/tasks/{id}(id=${task.id})}" class="btn btn-info">👁️ Ver</a>
-            <a th:href="@{/ui/tasks/edit/{id}(id=${task.id})}" class="btn btn-success">✏️ Editar</a>
+            <a th:href="@{/ui/tasks/{id}(id=${task.id})}" class="btn btn-info"> Ver</a>
+            <a th:href="@{/ui/tasks/edit/{id}(id=${task.id})}" class="btn btn-success"> Editar</a>
             <a th:href="@{/ui/tasks/delete/{id}(id=${task.id})}"
                class="btn btn-danger"
-               onclick="return confirm('Tem certeza que deseja deletar esta tarefa?')">🗑️ Deletar</a>
+               onclick="return confirm('Tem certeza que deseja deletar esta tarefa?')"> Deletar</a>
           </div>
         </td>
       </tr>
