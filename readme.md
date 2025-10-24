@@ -99,12 +99,17 @@ CadastroDeFuncionarios/
 ```bash
 curl -X POST http://localhost:8080/api/funcionarios \
   -H "Content-Type: application/json" \
-  -d '{
-    "nome": "João Silva",
-    "email": "joao.silva@example.com",
-    "cargo": "Desenvolvedor",
-    "salario": 5000.00
-  }'
+  -d ' {
+        "name": "Pedro Costa",
+        "department": "FINANCEIRO",
+        "age": 31,
+        "imgUrl": "https://i.pravatar.cc/150?img=1",
+        "email": "pedro.costa@empresa.com",
+        "tasks": {
+            "id": 1
+        },
+        "nivel": "PLENO"
+    }'
 ```
 
 ### Listar Funcionários
