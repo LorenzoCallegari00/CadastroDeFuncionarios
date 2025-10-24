@@ -99,7 +99,7 @@
 </head>
 <body>
 <div class="container">
-  <h1 th:text="${task.id != null ? '✏️ Editar Tarefa' : '➕ Nova Tarefa'}">Formulário</h1>
+  <h1 th:text="${task.id != null ? ' Editar Tarefa' : ' Nova Tarefa'}">Formulário</h1>
 
   <form th:action="@{/ui/tasks/save}" method="post">
     <input type="hidden" name="id" th:value="${task.id != null ? task.id : 0}">
@@ -126,8 +126,8 @@
     </div>
 
     <div class="form-actions">
-      <a th:href="@{/ui/tasks}" class="btn btn-secondary">❌ Cancelar</a>
-      <button type="submit" class="btn btn-primary">💾 Salvar</button>
+      <a th:href="@{/ui/tasks}" class="btn btn-secondary"> Cancelar</a>
+      <button type="submit" class="btn btn-primary"> Salvar</button>
     </div>
   </form>
 </div>
