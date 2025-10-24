@@ -95,7 +95,7 @@
 </head>
 <body>
 <div class="container">
-  <h1 th:text="${employee.id != null ? '✏️ Editar Funcionário' : '➕ Novo Funcionário'}">Formulário</h1>
+  <h1 th:text="${employee.id != null ? ' Editar Funcionário' : ' Novo Funcionário'}">Formulário</h1>
 
   <form th:action="@{/ui/employees/save}" th:object="${employee}" method="post">
     <input type="hidden" th:field="*{id}">
@@ -152,8 +152,8 @@
     </div>
 
     <div class="form-actions">
-      <a th:href="@{/ui/employees}" class="btn btn-secondary">❌ Cancelar</a>
-      <button type="submit" class="btn btn-primary">💾 Salvar</button>
+      <a th:href="@{/ui/employees}" class="btn btn-secondary"> Cancelar</a>
+      <button type="submit" class="btn btn-primary"> Salvar</button>
     </div>
   </form>
 </div>
