@@ -80,16 +80,24 @@ CadastroDeFuncionarios/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── com/exemplo/cadastro/
-│   │   │       ├── controller/     # Controllers REST
-│   │   │       ├── model/          # Entidades JPA
-│   │   │       ├── repository/     # Repositories
-│   │   │       └── service/        # Camada de serviço
+│   │   │   └── com.example.CadastroDeFuncionarios/
+│   │   │       ├── Employees/              # Módulo de Funcionários
+│   │   │       ├── Tasks/                  # Módulo de Tarefas
+│   │   │       │   └── Controller/
+│   │   │       │       └── TasksController
+│   │   │       ├── dto/                    # Data Transfer Objects
+│   │   │       ├── mapper/                 # Mapeamento de entidades
+│   │   │       ├── Model/                  # Entidades JPA
+│   │   │       ├── Repository/             # Repositories
+│   │   │       ├── Service/                # Camada de serviço
+│   │   │       ├── TasksControllerUI       # Interface UI
+│   │   │       ├── CadastrodeFuncionariosApplication
+│   │   │       └── HomeController
 │   │   └── resources/
+│   │       ├── db.migration/               # Scripts de migração
+│   │       ├── static/                     # Arquivos estáticos
+│   │       ├── templates/                  # Templates Thymeleaf
 │   │       └── application.properties
-│   └── test/
-├── pom.xml
-└── README.md
 ```
 
 ## Exemplo de Uso
