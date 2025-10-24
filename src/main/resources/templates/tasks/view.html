@@ -114,7 +114,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>📋 Detalhes da Tarefa</h1>
+  <h1> Detalhes da Tarefa</h1>
 
   <div class="detail-row">
     <div class="detail-label">ID</div>
@@ -155,11 +155,11 @@
   </div>
 
   <div class="actions">
-    <a th:href="@{/ui/tasks}" class="btn btn-secondary">⬅️ Voltar</a>
-    <a th:href="@{/ui/tasks/edit/{id}(id=${task.id})}" class="btn btn-success">✏️ Editar</a>
+    <a th:href="@{/ui/tasks}" class="btn btn-secondary"> Voltar</a>
+    <a th:href="@{/ui/tasks/edit/{id}(id=${task.id})}" class="btn btn-success"> Editar</a>
     <a th:href="@{/ui/tasks/delete/{id}(id=${task.id})}"
        class="btn btn-danger"
-       onclick="return confirm('Tem certeza que deseja deletar esta tarefa?')">🗑️ Deletar</a>
+       onclick="return confirm('Tem certeza que deseja deletar esta tarefa?')"> Deletar</a>
   </div>
 </div>
 </body>
