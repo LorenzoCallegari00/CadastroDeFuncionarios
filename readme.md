@@ -92,14 +92,6 @@ CadastroDeFuncionarios/
 └── README.md
 ```
 
-## Testes
-
-Execute os testes com o comando:
-
-```bash
-mvn test
-```
-
 ## Exemplo de Uso
 
 ### Cadastrar um Funcionário
