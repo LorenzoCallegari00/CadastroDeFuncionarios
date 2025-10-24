@@ -159,8 +159,8 @@
   </div>
 
   <div class="header-actions">
-    <a th:href="@{/ui/employees/new}" class="btn btn-primary">➕ Novo Funcionário</a>
-    <a th:href="@{/ui/tasks}" class="btn btn-secondary">📝 Ver Tarefas</a>
+    <a th:href="@{/ui/employees/new}" class="btn btn-primary"> Novo Funcionário</a>
+    <a th:href="@{/ui/tasks}" class="btn btn-secondary"> Ver Tarefas</a>
   </div>
 
   <div th:if="${employees != null and !employees.isEmpty()}">
@@ -191,11 +191,11 @@
         <td th:text="${employee.tasks != null ? employee.tasks.name : 'Sem tarefa'}">Tarefa</td>
         <td>
           <div class="actions">
-            <a th:href="@{/ui/employees/{id}(id=${employee.id})}" class="btn btn-info">👁️ Ver</a>
-            <a th:href="@{/ui/employees/edit/{id}(id=${employee.id})}" class="btn btn-success">✏️ Editar</a>
+            <a th:href="@{/ui/employees/{id}(id=${employee.id})}" class="btn btn-info"> Ver</a>
+            <a th:href="@{/ui/employees/edit/{id}(id=${employee.id})}" class="btn btn-success"> Editar</a>
             <a th:href="@{/ui/employees/delete/{id}(id=${employee.id})}"
                class="btn btn-danger"
-               onclick="return confirm('Tem certeza que deseja deletar este funcionário?')">🗑️ Deletar</a>
+               onclick="return confirm('Tem certeza que deseja deletar este funcionário?')"> Deletar</a>
           </div>
         </td>
       </tr>
