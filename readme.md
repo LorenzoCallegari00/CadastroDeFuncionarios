@@ -126,10 +126,6 @@ curl -X POST http://localhost:8080/api/funcionarios \
 curl -X GET http://localhost:8080/api/funcionarios
 ```
 
-## Observações Importantes
-
-> **Nota sobre Interface:** As páginas HTML/templates deste projeto foram desenvolvidas com auxílio de Inteligência Artificial. O foco principal do projeto é o aprendizado de conceitos backend e Spring Boot.
-
 ## Aprendizados
 
 Este projeto foi desenvolvido com o objetivo de praticar e consolidar conhecimentos em:
