@@ -1,5 +1,13 @@
 #  Cadastro de Funcionários
 
+# Cadastro de Funcionários
+
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-green)
+![Maven](https://img.shields.io/badge/Maven-3.6+-blue)
+![H2](https://img.shields.io/badge/Database-H2-blue)
+![Swagger](https://img.shields.io/badge/API%20Docs-Swagger-85EA2D)
+
 >  **Projeto de Estudos** - Esta é uma aplicação desenvolvida para fins educacionais e aprendizado de tecnologias backend.
 
 Uma API REST para gerenciamento de funcionários e tarefas desenvolvida com Spring Boot. Projeto criado para estudo e prática de conceitos fundamentais de desenvolvimento backend com Java e Spring Framework.
@@ -50,6 +58,14 @@ mvn spring-boot:run
 4. **Acesse a aplicação**
    
    A API estará disponível em: `http://localhost:8080`
+
+## Documentação da API (Swagger)
+
+Após executar a aplicação, acesse a documentação interativa da API:
+
+**Swagger UI:** `http://localhost:8080/swagger-ui.html`
+
+Aqui você pode visualizar todos os endpoints, testar requisições e ver os schemas de dados.   
 
 ## Endpoints da API
 
